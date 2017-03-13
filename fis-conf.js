@@ -14,37 +14,8 @@ can get back files from corect position
 *************************************/
 
 
-// fis.match('*.{js,css,png,gif}', {
-//     domain: 'http://webmap1.map.bdstatic.com/' + fis.get('namespace')
-// });
-
-/*******************************************
-deploy file to remote machine
-demo : fis3 relase -w
-********************************************/
-
-// fis.media('fang').match('*', {
-//     deploy: fis.plugin('http-push', {
-//         receiver: 'http://cq01-rdqa-dev050.cq01.baidu.com:8008/webmap/receiver.php',
-//         to: '/home/users/wangjiapeng/superman/lighttpd/htdocs/jinbao'
-//     }),
-//     domain: '/' + fis.get('namespace')
-// });
-
-// release
-// fis release --optimize --dest ../output
-
-
 fis.media('product').match('*', {
-  deploy: fis.plugin('local-deliver', {
-    to: '../gpjh5/apps/vue/static/vue/'
-  }),
-  url: '/static/vue$0'
-});
-fis.media('product').match('*.html', {
-  deploy: fis.plugin('local-deliver', {
-    to: '../gpjh5/apps/vue/templates/vue/'
-  })
+  domain: '/'
 });
 
 // set 为覆盖不是叠加
@@ -121,20 +92,10 @@ fis.match('::package', {
           '/static/js/utils/url.js'
         ],
         '/static/util-lib-pkg.js': [
-          '/static/js/utils/auth.js',
-          '/static/js/utils/cookie.js',
-          '/static/js/utils/dialog.js',
-          '/static/js/utils/geo.js',
+          '/static/js/utils/iscroll.js',
+          '/static/js/utils/swipe.js',
           '/static/js/utils/util.js',
-          '/static/js/utils/store.js',
-          '/static/js/utils/stat.js',
-          '/static/js/utils/vindexnav.js',
-          '/static/js/utils/vue.lazyimg.js',
-          '/static/js/utils/zepto.lazyload.js',
           '/static/js/utils/datamodel.js',
-          '/static/js/utils/datamodelv2.js',
-          '/static/js/utils/callna.js',
-          '/static/js/utils/IDValidator.js'
         ]
     })
 });
