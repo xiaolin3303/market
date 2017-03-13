@@ -5,7 +5,7 @@ var express = require('express'),
 	path = require('path'),
 	port = 80;
 
-app.use('/static', express.static('/home/market/market-product/static'));
+app.use('/static', express.static('/home/market/market-product'));
 
 // main entry file
 const mainEntry = path.join('/home/market/market-product/index.html');
