@@ -19,7 +19,7 @@ can get back files from corect position
 // });
 
 // set 为覆盖不是叠加
-fis.set('project.ignore', fis.get('project.ignore').concat(['createPage.js', 'createWidget.js']));
+fis.set('project.ignore', fis.get('project.ignore').concat(['createPage.js', 'createWidget.js', 'server/**']));
 
 /**********************
      parse files
