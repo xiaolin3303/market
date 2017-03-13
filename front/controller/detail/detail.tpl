@@ -1,5 +1,8 @@
 <div class="market-detail-page">
-	<img src="/static/img/collections/work1.png" alt="" class="cover">
+	<img src="/static/img/like.png" alt="Like" class="like">
+	<div class="cover-wrapper">	
+		<img src="/static/img/collections/work1.png" alt="" class="cover">
+	</div>
 	<div class="poetry">
 		<p>渊池深</p>
 		<p>北冥秋</p>
