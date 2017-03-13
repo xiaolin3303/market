@@ -8,7 +8,7 @@ var express = require('express'),
 app.use('/static', express.static('/home/market/market-product/static'));
 
 // main entry file
-const mainEntry = path.join('/home/market/market-product/static');
+const mainEntry = path.join('/home/market/market-product/index.html');
 
 // route handler for GET /
 app.get('/', function(req, res) {
