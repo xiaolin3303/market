@@ -14,9 +14,9 @@ can get back files from corect position
 *************************************/
 
 
-// fis.media('product').match('*', {
-//   domain: '/'
-// });
+fis.media('product').match('*', {
+  domain: '/static'
+});
 
 // set 为覆盖不是叠加
 fis.set('project.ignore', fis.get('project.ignore').concat(['createPage.js', 'createWidget.js', 'server/**.js']));
