@@ -1,2 +1,2 @@
-git clone https://github.com/xiaolin3303/market.git
+git pull --rebase
 fis3 release product -d ../market-product
