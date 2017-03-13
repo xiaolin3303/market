@@ -5,10 +5,10 @@ var express = require('express'),
 	path = require('path'),
 	port = 80;
 
-app.use('/static', express.static(__dirname + '/static'));
+app.use('/static', express.static(__dirname + '/front/static'));
 
 // main entry file
-const mainEntry = path.join(__dirname, 'index.html');
+const mainEntry = path.join(__dirname, '/front/index.html');
 
 // route handler for GET /
 app.get('/', function(req, res) {
