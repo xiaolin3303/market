@@ -17,6 +17,9 @@ can get back files from corect position
 fis.media('product').match('*', {
   domain: '/static'
 });
+fis.media('product').match('*.js', {
+    optimizer: fis.plugin('uglify-js')
+});
 
 // set 为覆盖不是叠加
 fis.set('project.ignore', fis.get('project.ignore').concat(['createPage.js', 'createWidget.js', 'server/**.js']));
@@ -57,9 +60,6 @@ fis.match('static/js/**.js', {
 fis.match('*.{css,less}', {
     optimizer: fis.plugin('clean-css')
 });
-// fis.match('*.js', {
-//     optimizer: fis.plugin('uglify-js')
-// });
 fis.match('*.png', {
     optimizer: fis.plugin('png-compressor', {
       type : 'pngquant'
