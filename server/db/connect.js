@@ -1,15 +1,12 @@
 var MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb://localhost:27017/animals', function(err, db) {
-	if (err) {
-		throw err;
-	}
-	db.collection('mammals').find().toArray(function(err, result) {
+module.exports = new Promise((resolve, reject) => {
+	
+	MongoClient.connect('mongodb://139.129.230.76:27017/market', function(err, db) {
 		if (err) {
-			throw err;
+			reject(err);
+		} else {		
+			resolve(db);
 		}
-		console.log(result);
 	});
 });
-
-module.export = MongoClient;

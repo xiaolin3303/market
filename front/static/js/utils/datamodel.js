@@ -1,25 +1,15 @@
 import { Promise } from 'static/js/promise.js';
-import Auth from 'static/js/utils/auth'
 import Util from 'static/js/utils/util'
-
-let clearUnvalidToken = (expireToken) => {
-    if (expireToken === Auth.getToken()) {
-        Auth.setToken('');
-    }
-};
 
 let dataModel = (url, data, opts = {}) => {
     opts = $.extend({
-        type: 'POST',
+        type: 'GET',
         timeout: 5000,
         headers: {}
     }, opts);
 
-    if (opts.headers.Authorization && opts.headers.Authorization.trim() === 'JWT') {
-        // invalid JWT token
-        delete opts.headers.Authorization;
-    }
     let p = new Promise();
+
     $.ajax({
         url: url,
         data: data,
@@ -29,22 +19,20 @@ let dataModel = (url, data, opts = {}) => {
         cache: false,
         headers: opts.headers,
         beforeSend: function(xhr){
-            xhr.withCredentials = true;
+            // xhr.withCredentials = true;
         },
         success: (ret, textStatus, request) => {
-            clearUnvalidToken(ret['gpj.expire_token']);
-            if(ret.status === 'success'){
-                p.done(null, ret.result || ret.data, ret);
-            } else {
-                if (ret.login_required === 'yes') {
-                    Util.login({ type: 'direct' });
-                } else {
-                    p.done(ret.message || ret.msg || '服务似乎有点问题，请重试');
-                }
-            }
+            p.done(null, ret);
         },
-        error: (request) => {
-            p.done('网络似乎有点问题，请重试');
+        error: (xhr) => {
+            let response = {};
+            try {
+                response = JSON.parse(xhr.responseText);
+            } catch (e) {
+                // TODO
+            }
+            let msg = response.message || '网络似乎有点问题，请重试';
+            p.done(msg);
         }
     });
 

@@ -1,11 +1,21 @@
 // create an express app
-var express = require('express'),
-	app = express(),
-	fs = require('fs'),
-	path = require('path'),
-	port = 80;
+var express = require('express');
+var app = express();
+var fs = require('fs');
+var path = require('path');
+var port = process.env.PORT || 80;
+var bodyParser = require('body-parser');
+var router = require('./router/router');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// static files
 app.use('/static', express.static('/home/market/market-product'));
+
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+app.use('/api', router);
 
 // main entry file
 const mainEntry = path.join('/home/market/market-product/index.html');
