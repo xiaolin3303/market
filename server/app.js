@@ -10,6 +10,9 @@ var router = require('./router/router');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// compress static files
+app.use(express.compress());
+
 // static files
 app.use('/static', express.static('/home/market/market-product'));
 
