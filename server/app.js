@@ -6,12 +6,13 @@ var path = require('path');
 var port = process.env.PORT || 80;
 var bodyParser = require('body-parser');
 var router = require('./router/router');
+var compression = require('compression');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // compress static files
-app.use(express.compress());
+app.use(compression());
 
 // static files
 app.use('/static', express.static('/home/market/market-product'));
