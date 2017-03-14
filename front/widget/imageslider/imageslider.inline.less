@@ -1,0 +1,54 @@
+.market-widget-imageslider{
+	overflow: hidden;
+	&.slide-box{
+		width: 100%;
+		position: relative;
+
+		.nav {
+			width: 100%;
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			text-align: center;
+
+			li {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #eee;
+				display: inline-block;
+				margin: 8px 5px 6px 5px;
+
+				&.active {
+					background: #ff9613;
+				}
+			}
+		}
+	}
+	.swipe {
+		overflow: hidden;
+		visibility: hidden;
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+		opacity: 0;
+		transition: opacity .2s linear;
+	}
+	.swipe-wrap {
+		overflow: hidden;
+		position: relative;
+	}
+	.swipe-wrap .item {
+		float:left;
+		width:100%;
+		position: relative;
+		background: white;
+	}
+	.swipe-wrap .item img{
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		-webkit-object-fit: cover;
+		display: block;
+	}
+}
