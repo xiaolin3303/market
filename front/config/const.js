@@ -3,6 +3,7 @@ const COLLECTION_IMAGE_PRIFIX = 'http://139.129.230.76:8000/images/market-images
 const API_HOST = 'http://139.129.230.76/api/';
 
 const COLLECTION_DETAIL = (id) => `${API_HOST}detail/${id}`;
+const COLLECTION_LIST = (cat) => `${API_HOST}list/${cat}`;
 
 const CAT = {
 	book: {
