@@ -32,7 +32,11 @@ router.get('/list/:cat', function(req, res) {
 router.get('/detail/:id', function(req, res) {
 	var query = {_id: ObjectId(req.params.id)};
 	DataModel.queryOne('collections', query).then((result) => {
-		res.json(result);
+		if (result) {		
+			res.json(result); 
+		} else {
+			res.status(404).send({ message: 'not find' });
+		}
 	}).catch((err) => {
 		res.status(500).send({ message: '500 server error' });
 	});
