@@ -29,6 +29,15 @@ router.get('/list/:cat', function(req, res) {
 	});
 });
 
+router.get('/detail/:id', function(req, res) {
+	var query = {_id: ObjectId(req.params.id)};
+	DataModel.queryOne('collections', query).then((result) => {
+		res.json(result);
+	}).catch((err) => {
+		res.status(500).send({ message: '500 server error' });
+	});
+});
+
 router.put('/detail/:id', function(req, res) {
 	var query = {_id: ObjectId(req.params.id)};
 	DataModel.queryOne('collections', query).then((result) => {
