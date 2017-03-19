@@ -1,6 +1,8 @@
 import Control from 'static/js/controller.js'
 import DataModel from 'static/js/utils/datamodel'
-import ImageSlider from 'widget/imageslider/imageslider'
+import ImageSlider from 'widget/common/imageslider/imageslider'
+import Header from 'widget/common/header/header'
+import Url from 'static/js/utils/url'
 
 let style = __inline('./detail.less');
 let tpl = __inline('./detail.tpl');
@@ -32,6 +34,11 @@ class DetailControl extends Control{
                 me.pageLoaded();
             },
             methods: {
+                buy: function () {
+                    Url.navigate({
+                        url: 'buyinstruction'
+                    });
+                },
                 like: function () {
                     if (this.liked === false) {
                         this.liked = true;

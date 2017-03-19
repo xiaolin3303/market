@@ -1,6 +1,7 @@
 /**
  * 此处需要声明 require.async所有的可能值
  * @require.async market:controller/detail/detailControl.js
+ * @require.async market:controller/buyinstruction/buyinstructionControl.js
  * <!-- require resource map hook -->
  */
 

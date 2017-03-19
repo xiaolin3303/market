@@ -19,13 +19,13 @@ if (dir) {
 }
 
 var htmlTpl = [];
-htmlTpl.push('<div class="styleguide gpj-widget-' + dir + widget + '">');
+htmlTpl.push('<div class="styleguide market-widget-' + dir + widget + '">');
 htmlTpl.push('');
 htmlTpl.push('</div>');
 htmlTpl = htmlTpl.join('\n');
 
 var styleTpl = [];
-styleTpl.push('.gpj-widget-' + dir + widget + ' {');
+styleTpl.push('.market-widget-' + dir + widget + ' {');
 styleTpl.push('');
 styleTpl.push('}');
 styleTpl = styleTpl.join('\n');
@@ -35,7 +35,7 @@ jsTpl.push("let style = __inline('./" + widget + ".inline.less');");
 jsTpl.push("let tpl = __inline('./" + widget + ".tpl');");
 jsTpl.push("");
 jsTpl.push("require.loadCss({");
-jsTpl.push("    name: 'gpj-widget-" + dir + widget + "-style',");
+jsTpl.push("    name: 'market-widget-" + dir + widget + "-style',");
 jsTpl.push("    content: style");
 jsTpl.push("});");
 jsTpl.push("");
