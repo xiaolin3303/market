@@ -6,10 +6,10 @@ var ObjectId = require('mongodb').ObjectID;
 var router = express.Router();
 
 router.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT ,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
-  next();
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT ,DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+	next();
 });
 
 router.get('/list', function(req, res) {
@@ -20,14 +20,19 @@ router.get('/list', function(req, res) {
 	});
 });
 
+router.get('/list/:cat', function(req, res) {
+	var query = {cat: req.params.cat};	
+	DataModel.query('collections', query).then((result) => {
+		res.json(result); 
+	}).catch((err) => {
+		res.status(500).send({ message: '500 server error' });
+	});
+});
+
 router.get('/detail/:id', function(req, res) {
 	var query = {_id: ObjectId(req.params.id)};
-	DataModel.queryOne('collections', query).then((result) => {
-		if (result) {		
-			res.json(result); 
-		} else {
-			res.status(404).send({ message: 'not find' });
-		}
+	DataModel.query('collections', query).then((result) => {
+		res.json(result);
 	}).catch((err) => {
 		res.status(500).send({ message: '500 server error' });
 	});

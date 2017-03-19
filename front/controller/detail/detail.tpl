@@ -2,11 +2,11 @@
 <template v-if="!$loadingAsyncData">
 	<common-header></common-header>
 	<div class="cover-wrapper">
-		<div class="like-wrapper" @click="like">
+		<!-- <div class="like-wrapper" @click="like">
 			<img v-if="liked" src="/static/img/like.png" alt="Like" class="like">
 			<img v-else src="/static/img/like-default.png" alt="Like" class="like">
 			<span>{{detail.like}}</span>
-		</div>
+		</div> -->
 		<imageslider
 			:images="detail.images"
 			:is-ready="true"
@@ -15,8 +15,8 @@
 	</div>
 	<div class="poetry">
 		<p v-for="item in detail.poetry">{{item}}</p>
-		<p><i class="end"></i></p>
 	</div>
+	<div class="sale-spacing"></div>
 	<div class="sale-wrapper com-border-top">
 		<div class="row">
 			<div class="price">￥{{detail.price}}</div>

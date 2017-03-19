@@ -13,6 +13,7 @@
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
+    "compression": "^1.6.2",
     "fis-parser-bdtmpl": "0.0.3",
     "fis-parser-less": "^0.1.3",
     "fis3-hook-commonjs": "^0.1.25",
