@@ -26,7 +26,8 @@ class CatControl extends Control{
                 me.pageLoaded();
             },
             data: () => ({
-                list: []
+                list: [],
+                catDetail: CAT[_APP_HASH.type]
             }),
             asyncData: function (resolve, reject) {
                 let cat = _APP_HASH.type;
