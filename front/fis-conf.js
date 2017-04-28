@@ -15,7 +15,7 @@ can get back files from corect position
 
 
 fis.media('product').match('*', {
-  domain: '/static'
+  domain: 'http://139.129.230.76/static'
 });
 fis.media('product').match('*.js', {
     optimizer: fis.plugin('uglify-js')
